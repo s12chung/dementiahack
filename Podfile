@@ -4,6 +4,5 @@
 # use_frameworks!
 
 target 'dementiahack' do
-
-end
-
+    pod 'AFNetworking', '~> 2.6.2'
+end.

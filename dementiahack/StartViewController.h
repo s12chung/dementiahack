@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  StartViewController.h
 //  dementiahack
 //
 //  Created by Main on 2015-11-07.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
-
+@interface StartViewController : UIViewController
 
 @end
-

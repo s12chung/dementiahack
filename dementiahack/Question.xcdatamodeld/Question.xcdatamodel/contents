@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15B42" minimumToolsVersion="Xcode 7.0">
+    <entity name="AudioQuestion" syncable="YES">
+        <attribute name="audioBinary" optional="YES" attributeType="Binary" syncable="YES"/>
+    </entity>
+    <entity name="Question" isAbstract="YES" syncable="YES">
+        <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="AudioQuestion" positionX="-54" positionY="9" width="128" height="60"/>
+        <element name="Question" positionX="-63" positionY="-18" width="128" height="75"/>
+    </elements>
+</model>
