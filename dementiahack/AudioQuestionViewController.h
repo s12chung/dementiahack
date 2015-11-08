@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AudioQuestion.h"
+#import "QuestionViewController.h"
 #import <AVFoundation/AVFoundation.h>
 
 
-@interface AudioQuestionViewController : UIViewController <AVAudioRecorderDelegate, AVAudioPlayerDelegate>
-    @property (strong, nonatomic) AudioQuestion * audioQuestion;
+@interface AudioQuestionViewController : QuestionViewController <AVAudioRecorderDelegate, AVAudioPlayerDelegate>
 @end

@@ -7,20 +7,22 @@
 //
 
 #import "AudioQuestionViewController.h"
+#import "AudioQuestion.h"
 
 @interface AudioQuestionViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *questionTextLabel;
-
 @property (weak, nonatomic) IBOutlet UIButton *questionAudioButton;
 @property (nonatomic) BOOL questionAudioPlaying;
+@property (strong, nonatomic)AVAudioPlayer *questionPlayer;
 
 @property (weak, nonatomic) IBOutlet UIButton *audioRecordingButton;
 @property (nonatomic) BOOL audioRecording;
-
-@property (strong, nonatomic)AVAudioPlayer *questionPlayer;
 @end
 
 @implementation AudioQuestionViewController
+
+- (AudioQuestion *)audioQuestion {
+    return (AudioQuestion *)self.question;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

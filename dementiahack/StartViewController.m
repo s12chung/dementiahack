@@ -31,7 +31,7 @@
 - (IBAction)startNewInterviewButtonTouched:(id)sender {
     AudioQuestionViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AudioQuestion"];
     viewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    viewController.audioQuestion = [AudioQuestion findFirstByAttribute:@"order" withValue: [NSNumber numberWithInt:1]];
+    viewController.question = [AudioQuestion findFirstByAttribute:@"order" withValue: [NSNumber numberWithInt:1]];
     [self presentViewController:viewController animated:YES completion:nil];
 }
 
