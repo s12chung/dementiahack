@@ -10,6 +10,8 @@
 #import "DrawingQuestion.h"
 #import "DrawingAnswer.h"
 #import <MagicalRecord/MagicalRecord.h>
+#import <AFHTTPRequestOperation.h>
+#import <AFNetworking.h>
 
 @interface DrawingQuestionViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *referenceImage;
@@ -42,11 +44,7 @@
     
     //Double Tap to Clear Screen
     if([touch tapCount]==2) {
-        NSArray *pathComponents = [NSArray arrayWithObjects:
-                                   [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
-                                   @"drawImage.png",
-                                   nil];
-        [self.imageData writeToURL:[NSURL fileURLWithPathComponents:pathComponents] atomically:NO];
+        [self saveImage];
         self.drawImage.image=nil;
     }
     
@@ -57,6 +55,15 @@
 
 - (NSData *)imageData {
     return UIImagePNGRepresentation(self.drawImage.image);
+}
+-(NSURL *)saveImage {
+    NSArray *pathComponents = [NSArray arrayWithObjects:
+                               [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
+                               @"drawImage.png",
+                               nil];
+    NSURL * url = [NSURL fileURLWithPathComponents:pathComponents];
+    [self.imageData writeToURL:url atomically:NO];
+    return url;
 }
 
 - (void) touchesMoved: (NSSet *) touches withEvent: (UIEvent *) event {
@@ -85,7 +92,32 @@
 - (IBAction)saveAnswer:(id)sender {
     DrawingAnswer * answer = [DrawingAnswer MR_createEntity];
     answer.drawingBinary = self.imageData;
-    [self pushNextQuestion];
+
+    NSString * token = @{ @2:  @"4af42c57c08b4210", @3: @"17623eb080054ba0" }[self.question.order];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:@"https://search.craftar.net/v1/search" parameters:@{ @"token": token } constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+//        NSURL *filePath = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"2" ofType:@"png"]];
+//        [formData appendPartWithFileURL:filePath name:@"image" error:nil];
+        
+        [formData appendPartWithFileData:answer.drawingBinary name:@"image" fileName:@"image.png" mimeType:@"image/png"];
+        
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject isKindOfClass:[NSDictionary class]]) {
+            NSLog(@"Success: %@", responseObject);
+            if ([responseObject isKindOfClass:[NSDictionary class]]) {
+                NSString *value = responseObject[@"results"][0][@"score"];
+                int threashold = [@{ @2: @10, @3: @20 }[self.question.order] intValue];
+                answer.correct = [NSNumber numberWithBool:[value intValue] > threashold];
+            }
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+
+//    [self pushNextQuestion];
 }
 
 
