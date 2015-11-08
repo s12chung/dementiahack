@@ -33,7 +33,7 @@
     navigationController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self presentViewController:navigationController animated:YES completion:nil];
     
-    Question * question = [Question findFirstByAttribute:@"order" withValue: [NSNumber numberWithInt:1]];
+    Question * question = [Question findFirstByAttribute:@"order" withValue: [NSNumber numberWithInt:2]];
     QuestionViewController * viewController = [self.storyboard instantiateViewControllerWithIdentifier:question.storyboardId];
     viewController.question = question;
     [navigationController pushViewController:viewController animated:YES];

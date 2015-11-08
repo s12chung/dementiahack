@@ -27,6 +27,7 @@
 		AA2CD2401BEEF43D00942C4B /* DrawingAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2CD23C1BEEF43D00942C4B /* DrawingAnswer.m */; };
 		AA2CD2431BEEF46700942C4B /* DrawingQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2CD2421BEEF46700942C4B /* DrawingQuestionViewController.m */; };
 		AA2CD2481BEF071D00942C4B /* cube.png in Resources */ = {isa = PBXBuildFile; fileRef = AA2CD2471BEF071D00942C4B /* cube.png */; };
+		AA45E6AB1BEF845100873CD3 /* PreDrawingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA45E6AA1BEF845100873CD3 /* PreDrawingViewController.m */; };
 		AABBD95B1BEE86EB00B6A183 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AABBD95A1BEE86EB00B6A183 /* main.m */; };
 		AABBD95E1BEE86EB00B6A183 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AABBD95D1BEE86EB00B6A183 /* AppDelegate.m */; };
 		AABBD9641BEE86EB00B6A183 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AABBD9631BEE86EB00B6A183 /* SecondViewController.m */; };
@@ -72,6 +73,8 @@
 		AA2CD2411BEEF46700942C4B /* DrawingQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingQuestionViewController.h; sourceTree = "<group>"; };
 		AA2CD2421BEEF46700942C4B /* DrawingQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingQuestionViewController.m; sourceTree = "<group>"; };
 		AA2CD2471BEF071D00942C4B /* cube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cube.png; path = ../../../Downloads/cube.png; sourceTree = "<group>"; };
+		AA45E6A91BEF845100873CD3 /* PreDrawingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreDrawingViewController.h; sourceTree = "<group>"; };
+		AA45E6AA1BEF845100873CD3 /* PreDrawingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreDrawingViewController.m; sourceTree = "<group>"; };
 		AABBD9561BEE86EB00B6A183 /* dementiahack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dementiahack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AABBD95A1BEE86EB00B6A183 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AABBD95C1BEE86EB00B6A183 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -186,6 +189,8 @@
 				AA2CD2271BEEF21F00942C4B /* QuestionViewController.m */,
 				AA2CD2191BEEC86100942C4B /* AudioQuestionViewController.h */,
 				AA2CD21A1BEEC86100942C4B /* AudioQuestionViewController.m */,
+				AA45E6A91BEF845100873CD3 /* PreDrawingViewController.h */,
+				AA45E6AA1BEF845100873CD3 /* PreDrawingViewController.m */,
 				AA2CD2411BEEF46700942C4B /* DrawingQuestionViewController.h */,
 				AA2CD2421BEEF46700942C4B /* DrawingQuestionViewController.m */,
 				AABBD9651BEE86EB00B6A183 /* Main.storyboard */,
@@ -344,6 +349,7 @@
 				AA2CD2131BEEB66900942C4B /* AudioQuestion+CoreDataProperties.m in Sources */,
 				AABBD95E1BEE86EB00B6A183 /* AppDelegate.m in Sources */,
 				AA2CD2111BEEB66900942C4B /* AudioAnswer+CoreDataProperties.m in Sources */,
+				AA45E6AB1BEF845100873CD3 /* PreDrawingViewController.m in Sources */,
 				AA2CD21B1BEEC86100942C4B /* AudioQuestionViewController.m in Sources */,
 				AA2CD2151BEEB66900942C4B /* Question+CoreDataProperties.m in Sources */,
 				AA2CD23E1BEEF43D00942C4B /* DrawingQuestion.m in Sources */,

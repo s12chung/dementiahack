@@ -184,10 +184,10 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--Question View Controller-->
+        <!--Pre Drawing View Controller-->
         <scene sceneID="Aex-jA-dGE">
             <objects>
-                <viewController storyboardIdentifier="DrawingQuestion" useStoryboardIdentifierAsRestorationIdentifier="YES" id="viW-bi-c1V" customClass="QuestionViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DrawingQuestion" useStoryboardIdentifierAsRestorationIdentifier="YES" id="viW-bi-c1V" customClass="PreDrawingViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fIT-1h-MgN"/>
                         <viewControllerLayoutGuide type="bottom" id="qUt-Ym-JsM"/>
@@ -230,7 +230,7 @@
                                 <animations/>
                                 <state key="normal" title="Begin Drawing"/>
                                 <connections>
-                                    <segue destination="ikV-Ie-5Jn" kind="push" id="X5i-e3-8Oo"/>
+                                    <action selector="beginDrawingTouched:" destination="viW-bi-c1V" eventType="touchUpInside" id="9iz-4p-vqd"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -238,6 +238,7 @@
                     <connections>
                         <outlet property="questionAudioButton" destination="Q1o-sy-rsD" id="WAS-Si-zLD"/>
                         <outlet property="questionTextLabel" destination="AjI-S5-hhw" id="DlM-wq-8xi"/>
+                        <segue destination="ikV-Ie-5Jn" kind="push" identifier="LoadDrawing" id="3xL-8m-ji2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5wt-zk-X9F" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -256,10 +257,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x2i-bA-ZDj">
-                                <rect key="frame" x="0.0" y="64" width="320" height="138"/>
-                                <animations/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TQc-R6-boG">
                                 <rect key="frame" x="0.0" y="223" width="320" height="345"/>
                                 <animations/>
@@ -271,24 +268,26 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x2i-bA-ZDj">
+                                <rect key="frame" x="0.0" y="64" width="320" height="138"/>
+                                <animations/>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="TQc-R6-boG" firstAttribute="top" secondItem="u1I-hc-V5F" secondAttribute="bottom" constant="136" id="0k4-ps-ndj"/>
                             <constraint firstItem="TQc-R6-boG" firstAttribute="top" secondItem="EsD-su-jjj" secondAttribute="bottom" id="3IJ-9G-TXO"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="TQc-R6-boG" secondAttribute="trailing" id="4Jf-aT-JEE"/>
-                            <constraint firstItem="EsD-su-jjj" firstAttribute="top" secondItem="u1I-hc-V5F" secondAttribute="bottom" id="4S5-IK-BOX"/>
                             <constraint firstItem="EsD-su-jjj" firstAttribute="centerX" secondItem="Uac-TJ-ryX" secondAttribute="centerX" id="6g6-Cj-407"/>
                             <constraint firstItem="x2i-bA-ZDj" firstAttribute="leading" secondItem="Uac-TJ-ryX" secondAttribute="leadingMargin" id="ChU-Ed-ZCc"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="TQc-R6-boG" secondAttribute="trailing" id="Fzn-mL-9wc"/>
                             <constraint firstItem="ERD-k8-DP9" firstAttribute="top" secondItem="TQc-R6-boG" secondAttribute="bottom" id="OqH-ad-u0r"/>
-                            <constraint firstItem="TQc-R6-boG" firstAttribute="leading" secondItem="Uac-TJ-ryX" secondAttribute="leadingMargin" id="UHb-Gg-utX"/>
                             <constraint firstItem="ERD-k8-DP9" firstAttribute="top" secondItem="TQc-R6-boG" secondAttribute="bottom" id="YhA-eM-T3V"/>
-                            <constraint firstItem="TQc-R6-boG" firstAttribute="leading" secondItem="Uac-TJ-ryX" secondAttribute="leadingMargin" id="hcc-eC-zIL"/>
+                            <constraint firstItem="ERD-k8-DP9" firstAttribute="top" secondItem="TQc-R6-boG" secondAttribute="bottom" id="acW-E6-QKu"/>
+                            <constraint firstItem="TQc-R6-boG" firstAttribute="leading" secondItem="Uac-TJ-ryX" secondAttribute="leadingMargin" id="bmO-kD-c4R"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TQc-R6-boG" secondAttribute="trailing" id="er1-ZB-jQ3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="x2i-bA-ZDj" secondAttribute="trailing" id="jdT-FC-Res"/>
+                            <constraint firstItem="TQc-R6-boG" firstAttribute="top" secondItem="x2i-bA-ZDj" secondAttribute="bottom" constant="21" id="kZb-ki-LJF"/>
                             <constraint firstItem="TQc-R6-boG" firstAttribute="top" secondItem="EsD-su-jjj" secondAttribute="bottom" constant="1" id="lF0-L7-tAZ"/>
-                            <constraint firstItem="ERD-k8-DP9" firstAttribute="top" secondItem="x2i-bA-ZDj" secondAttribute="bottom" id="po6-7J-6T6"/>
                             <constraint firstItem="x2i-bA-ZDj" firstAttribute="top" secondItem="u1I-hc-V5F" secondAttribute="bottom" id="tlJ-ZG-4VS"/>
                         </constraints>
                     </view>

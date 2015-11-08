@@ -7,26 +7,29 @@
 //
 
 #import "DrawingQuestionViewController.h"
+#import "DrawingQuestion.h"
 
 @interface DrawingQuestionViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *referenceImage;
 @property (weak, nonatomic) IBOutlet UIImageView *drawImage;
 
 @property (nonatomic) CGPoint lastPoint;
-@property (nonatomic) CGPoint moveBackTo;
 @property (nonatomic) CGPoint currentPoint;
-@property (nonatomic) CGPoint location;
-@property (strong, nonatomic) NSDate *lastClick;
-@property (nonatomic) BOOL mouseSwiped;
+@property (nonatomic) BOOL createdDrawing;
 @end
 
 @implementation DrawingQuestionViewController
 
+- (DrawingQuestion *)drawingQuestion {
+    return (DrawingQuestion *)self.question;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self.navigationItem setHidesBackButton:NO];
+    self.referenceImage.contentMode = UIViewContentModeScaleAspectFit;
+    [self.referenceImage setImage:[UIImage imageWithData:self.drawingQuestion.drawingBinary]];
     // Do any additional setup after loading the view, typically from a nib.
 }
 //DRAW IMAGE SECTION///
@@ -44,22 +47,19 @@
         self.drawImage.image=nil;
     }
     
-    
-    self.location = [touch locationInView:touch.view];
-    self.lastClick = [NSDate date];
-    
-    self.lastPoint = [touch locationInView:self.view];
+    self.lastPoint = [touch locationInView:self.drawImage];
     [super touchesBegan: touches withEvent: event];
     
 }
 - (void) touchesMoved: (NSSet *) touches withEvent: (UIEvent *) event {
-    self.mouseSwiped = YES;
+    self.createdDrawing = YES;
     UITouch *touch=[touches anyObject];
     
-    self.currentPoint = [touch locationInView:self.view];
+    self.currentPoint = [touch locationInView:self.drawImage];
     
-    UIGraphicsBeginImageContext((CGSizeMake(320, 568)));
-    [self.drawImage.image drawInRect:CGRectMake(0,0,320,568)];
+    CGSize frameSize = self.drawImage.frame.size;
+    UIGraphicsBeginImageContext(CGSizeMake(frameSize.width, frameSize.height));
+    [self.drawImage.image drawInRect:CGRectMake(0,0,frameSize.width,frameSize.height)];
     CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
     CGContextSetLineWidth(UIGraphicsGetCurrentContext(),5.0);
     CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), 0, 0,0,1);
@@ -68,7 +68,7 @@
     CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), self.currentPoint.x, self.currentPoint.y);
     CGContextStrokePath(UIGraphicsGetCurrentContext());
     
-    [self.drawImage setFrame:CGRectMake(0,0, 320, 568)];
+    [self.drawImage setFrame:CGRectMake(0,0, frameSize.width, frameSize.height)];
     self.drawImage.image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     self.lastPoint = self.currentPoint;
