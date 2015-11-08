@@ -8,6 +8,8 @@
 
 #import "DrawingQuestionViewController.h"
 #import "DrawingQuestion.h"
+#import "DrawingAnswer.h"
+#import <MagicalRecord/MagicalRecord.h>
 
 @interface DrawingQuestionViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *referenceImage;
@@ -39,13 +41,12 @@
     UITouch *touch = [[event allTouches] anyObject];
     
     //Double Tap to Clear Screen
-    if([touch tapCount]==2)
-    {
-        
-        NSString* outFile = [NSHomeDirectory() stringByAppendingPathComponent:@"%@/drawImage.png"];
-        UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-        NSData *imageData = UIImagePNGRepresentation(image);
-        [imageData writeToFile:outFile atomically:NO];
+    if([touch tapCount]==2) {
+        NSArray *pathComponents = [NSArray arrayWithObjects:
+                                   [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
+                                   @"drawImage.png",
+                                   nil];
+        [self.imageData writeToURL:[NSURL fileURLWithPathComponents:pathComponents] atomically:NO];
         self.drawImage.image=nil;
     }
     
@@ -53,6 +54,11 @@
     [super touchesBegan: touches withEvent: event];
     
 }
+
+- (NSData *)imageData {
+    return UIImagePNGRepresentation(self.drawImage.image);
+}
+
 - (void) touchesMoved: (NSSet *) touches withEvent: (UIEvent *) event {
     self.createdDrawing = YES;
     UITouch *touch=[touches anyObject];
@@ -77,6 +83,8 @@
     [self.view addSubview: self.drawImage];
 }
 - (IBAction)saveAnswer:(id)sender {
+    DrawingAnswer * answer = [DrawingAnswer MR_createEntity];
+    answer.drawingBinary = self.imageData;
     [self pushNextQuestion];
 }
 

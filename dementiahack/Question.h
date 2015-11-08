@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-#define FIRST_QUESTION_ORDER @16
+#define FIRST_QUESTION_ORDER @2
 
 NS_ASSUME_NONNULL_BEGIN
 
