@@ -7,6 +7,10 @@
 //
 
 #import "StartViewController.h"
+#import "AudioQuestion.h"
+#import <MagicalRecord/MagicalRecordShorthandMethodAliases.h>
+
+#import "AudioQuestionViewController.h"
 
 @interface StartViewController ()
 
@@ -24,15 +28,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)startNewButtonTouched:(id)sender {
-//    UIViewController * viewController = [[UIStoryboard storyboardWithName:@"Map" bundle:nil] instantiateInitialViewController];
-//    viewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-//    [self presentViewController:viewController animated:animated completion:nil];
-//    
-//    PlacemarkViewController * placemarkViewController = (PlacemarkViewController *)[[UIStoryboard storyboardWithName:@"Placemark" bundle:nil] instantiateInitialViewController];
-//    placemarkViewController.placemark = markerWrapper;
-//    if (!IS_PHONE) placemarkViewController.delegate = self;
-//    viewContoller = placemarkViewController;
+- (IBAction)startNewInterviewButtonTouched:(id)sender {
+    AudioQuestionViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AudioQuestion"];
+    viewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    viewController.audioQuestion = [AudioQuestion findFirstByAttribute:@"order" withValue: [NSNumber numberWithInt:1]];
+    [self presentViewController:viewController animated:YES completion:nil];
 }
 
 /*

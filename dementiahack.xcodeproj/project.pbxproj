@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		360622BF3A74601B75290B3C /* libPods-dementiahack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BDC0B7073947D6AE7B4BF51 /* libPods-dementiahack.a */; };
 		AA2CD1F41BEE9D3500942C4B /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2CD1F31BEE9D3500942C4B /* StartViewController.m */; };
-		AA2CD1F71BEEA1C600942C4B /* AudioQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2CD1F61BEEA1C600942C4B /* AudioQuestionViewController.m */; };
 		AA2CD1FE1BEEAF9300942C4B /* Database.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AA2CD1FC1BEEAF9200942C4B /* Database.xcdatamodeld */; };
 		AA2CD20F1BEEB66900942C4B /* Answer+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2CD2001BEEB66900942C4B /* Answer+CoreDataProperties.m */; };
 		AA2CD2101BEEB66900942C4B /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2CD2021BEEB66900942C4B /* Answer.m */; };
@@ -19,12 +18,12 @@
 		AA2CD2141BEEB66900942C4B /* AudioQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2CD20A1BEEB66900942C4B /* AudioQuestion.m */; };
 		AA2CD2151BEEB66900942C4B /* Question+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2CD20C1BEEB66900942C4B /* Question+CoreDataProperties.m */; };
 		AA2CD2161BEEB66900942C4B /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2CD20E1BEEB66900942C4B /* Question.m */; };
+		AA2CD21B1BEEC86100942C4B /* AudioQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2CD21A1BEEC86100942C4B /* AudioQuestionViewController.m */; };
 		AABBD95B1BEE86EB00B6A183 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AABBD95A1BEE86EB00B6A183 /* main.m */; };
 		AABBD95E1BEE86EB00B6A183 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AABBD95D1BEE86EB00B6A183 /* AppDelegate.m */; };
 		AABBD9641BEE86EB00B6A183 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AABBD9631BEE86EB00B6A183 /* SecondViewController.m */; };
 		AABBD9671BEE86EB00B6A183 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AABBD9651BEE86EB00B6A183 /* Main.storyboard */; };
 		AABBD9691BEE86EB00B6A183 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AABBD9681BEE86EB00B6A183 /* Assets.xcassets */; };
-		AABBD96C1BEE86EB00B6A183 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AABBD96A1BEE86EB00B6A183 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,8 +31,6 @@
 		7596B14EC483351B182F7E72 /* Pods-dementiahack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dementiahack.release.xcconfig"; path = "Pods/Target Support Files/Pods-dementiahack/Pods-dementiahack.release.xcconfig"; sourceTree = "<group>"; };
 		AA2CD1F21BEE9D3500942C4B /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
 		AA2CD1F31BEE9D3500942C4B /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
-		AA2CD1F51BEEA1C600942C4B /* AudioQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioQuestionViewController.h; sourceTree = "<group>"; };
-		AA2CD1F61BEEA1C600942C4B /* AudioQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioQuestionViewController.m; sourceTree = "<group>"; };
 		AA2CD1FD1BEEAF9300942C4B /* Database.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Database.xcdatamodel; sourceTree = "<group>"; };
 		AA2CD1FF1BEEB66900942C4B /* Answer+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Answer+CoreDataProperties.h"; sourceTree = "<group>"; };
 		AA2CD2001BEEB66900942C4B /* Answer+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Answer+CoreDataProperties.m"; sourceTree = "<group>"; };
@@ -51,6 +48,8 @@
 		AA2CD20C1BEEB66900942C4B /* Question+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Question+CoreDataProperties.m"; sourceTree = "<group>"; };
 		AA2CD20D1BEEB66900942C4B /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
 		AA2CD20E1BEEB66900942C4B /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
+		AA2CD2191BEEC86100942C4B /* AudioQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioQuestionViewController.h; sourceTree = "<group>"; };
+		AA2CD21A1BEEC86100942C4B /* AudioQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioQuestionViewController.m; sourceTree = "<group>"; };
 		AABBD9561BEE86EB00B6A183 /* dementiahack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dementiahack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AABBD95A1BEE86EB00B6A183 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AABBD95C1BEE86EB00B6A183 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -59,7 +58,6 @@
 		AABBD9631BEE86EB00B6A183 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		AABBD9661BEE86EB00B6A183 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AABBD9681BEE86EB00B6A183 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AABBD96B1BEE86EB00B6A183 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AABBD96D1BEE86EB00B6A183 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA6ED865BA788609DF4F63CA /* Pods-dementiahack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dementiahack.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dementiahack/Pods-dementiahack.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,13 +132,12 @@
 				AABBD95D1BEE86EB00B6A183 /* AppDelegate.m */,
 				AA2CD1F21BEE9D3500942C4B /* StartViewController.h */,
 				AA2CD1F31BEE9D3500942C4B /* StartViewController.m */,
-				AA2CD1F51BEEA1C600942C4B /* AudioQuestionViewController.h */,
-				AA2CD1F61BEEA1C600942C4B /* AudioQuestionViewController.m */,
 				AABBD9621BEE86EB00B6A183 /* SecondViewController.h */,
 				AABBD9631BEE86EB00B6A183 /* SecondViewController.m */,
+				AA2CD2191BEEC86100942C4B /* AudioQuestionViewController.h */,
+				AA2CD21A1BEEC86100942C4B /* AudioQuestionViewController.m */,
 				AABBD9651BEE86EB00B6A183 /* Main.storyboard */,
 				AABBD9681BEE86EB00B6A183 /* Assets.xcassets */,
-				AABBD96A1BEE86EB00B6A183 /* LaunchScreen.storyboard */,
 				AABBD96D1BEE86EB00B6A183 /* Info.plist */,
 				AABBD9591BEE86EB00B6A183 /* Supporting Files */,
 			);
@@ -224,7 +221,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AABBD96C1BEE86EB00B6A183 /* LaunchScreen.storyboard in Resources */,
 				AABBD9691BEE86EB00B6A183 /* Assets.xcassets in Resources */,
 				AABBD9671BEE86EB00B6A183 /* Main.storyboard in Resources */,
 			);
@@ -285,7 +281,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA2CD1F71BEEA1C600942C4B /* AudioQuestionViewController.m in Sources */,
 				AABBD9641BEE86EB00B6A183 /* SecondViewController.m in Sources */,
 				AA2CD20F1BEEB66900942C4B /* Answer+CoreDataProperties.m in Sources */,
 				AA2CD2101BEEB66900942C4B /* Answer.m in Sources */,
@@ -293,6 +288,7 @@
 				AA2CD2131BEEB66900942C4B /* AudioQuestion+CoreDataProperties.m in Sources */,
 				AABBD95E1BEE86EB00B6A183 /* AppDelegate.m in Sources */,
 				AA2CD2111BEEB66900942C4B /* AudioAnswer+CoreDataProperties.m in Sources */,
+				AA2CD21B1BEEC86100942C4B /* AudioQuestionViewController.m in Sources */,
 				AA2CD2151BEEB66900942C4B /* Question+CoreDataProperties.m in Sources */,
 				AA2CD1F41BEE9D3500942C4B /* StartViewController.m in Sources */,
 				AA2CD1FE1BEEAF9300942C4B /* Database.xcdatamodeld in Sources */,
@@ -311,14 +307,6 @@
 				AABBD9661BEE86EB00B6A183 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		AABBD96A1BEE86EB00B6A183 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AABBD96B1BEE86EB00B6A183 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

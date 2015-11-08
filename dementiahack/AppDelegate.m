@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import <MagicalRecord/MagicalRecord.h>
+#import <MagicalRecord/MagicalRecord+ShorthandMethods.h>
+#import <MagicalRecord/MagicalRecordShorthandMethodAliases.h>
 
 @interface AppDelegate ()
 
@@ -17,6 +20,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [MagicalRecord enableShorthandMethods];
+    [MagicalRecord setupAutoMigratingCoreDataStack];
+    
     return YES;
 }
 
@@ -40,6 +46,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [MagicalRecord cleanUp];
 }
 
 @end
