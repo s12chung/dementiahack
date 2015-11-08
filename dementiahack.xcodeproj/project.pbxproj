@@ -19,6 +19,7 @@
 		AA2CD2151BEEB66900942C4B /* Question+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2CD20C1BEEB66900942C4B /* Question+CoreDataProperties.m */; };
 		AA2CD2161BEEB66900942C4B /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2CD20E1BEEB66900942C4B /* Question.m */; };
 		AA2CD21B1BEEC86100942C4B /* AudioQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2CD21A1BEEC86100942C4B /* AudioQuestionViewController.m */; };
+		AA2CD2241BEEDE7400942C4B /* sample.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AA2CD2231BEEDE7400942C4B /* sample.mp3 */; };
 		AABBD95B1BEE86EB00B6A183 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AABBD95A1BEE86EB00B6A183 /* main.m */; };
 		AABBD95E1BEE86EB00B6A183 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AABBD95D1BEE86EB00B6A183 /* AppDelegate.m */; };
 		AABBD9641BEE86EB00B6A183 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AABBD9631BEE86EB00B6A183 /* SecondViewController.m */; };
@@ -50,6 +51,7 @@
 		AA2CD20E1BEEB66900942C4B /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
 		AA2CD2191BEEC86100942C4B /* AudioQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioQuestionViewController.h; sourceTree = "<group>"; };
 		AA2CD21A1BEEC86100942C4B /* AudioQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioQuestionViewController.m; sourceTree = "<group>"; };
+		AA2CD2231BEEDE7400942C4B /* sample.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = sample.mp3; path = ../../../Downloads/sample.mp3; sourceTree = "<group>"; };
 		AABBD9561BEE86EB00B6A183 /* dementiahack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dementiahack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AABBD95A1BEE86EB00B6A183 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AABBD95C1BEE86EB00B6A183 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -106,6 +108,14 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		AA2CD2201BEED67100942C4B /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				AA2CD2231BEEDE7400942C4B /* sample.mp3 */,
+			);
+			name = Audio;
+			sourceTree = "<group>";
+		};
 		AABBD94D1BEE86EB00B6A183 = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +137,7 @@
 		AABBD9581BEE86EB00B6A183 /* dementiahack */ = {
 			isa = PBXGroup;
 			children = (
+				AA2CD2201BEED67100942C4B /* Audio */,
 				AA2CD1F81BEEAEEB00942C4B /* Models */,
 				AABBD95C1BEE86EB00B6A183 /* AppDelegate.h */,
 				AABBD95D1BEE86EB00B6A183 /* AppDelegate.m */,
@@ -222,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AABBD9691BEE86EB00B6A183 /* Assets.xcassets in Resources */,
+				AA2CD2241BEEDE7400942C4B /* sample.mp3 in Resources */,
 				AABBD9671BEE86EB00B6A183 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

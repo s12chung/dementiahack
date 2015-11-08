@@ -5,16 +5,16 @@
     </entity>
     <entity name="AudioAnswer" representedClassName="AudioAnswer" parentEntity="Answer" syncable="YES"/>
     <entity name="AudioQuestion" representedClassName="AudioQuestion" parentEntity="Question" syncable="YES">
-        <attribute name="audioBinary" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="audioBinary" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
     </entity>
     <entity name="Question" representedClassName="Question" isAbstract="YES" syncable="YES">
         <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Question" positionX="-45" positionY="0" width="128" height="75"/>
-        <element name="AudioQuestion" positionX="-18" positionY="45" width="128" height="60"/>
         <element name="Answer" positionX="9" positionY="63" width="128" height="60"/>
         <element name="AudioAnswer" positionX="27" positionY="81" width="128" height="45"/>
+        <element name="AudioQuestion" positionX="-18" positionY="45" width="128" height="60"/>
+        <element name="Question" positionX="-45" positionY="0" width="128" height="75"/>
     </elements>
 </model>

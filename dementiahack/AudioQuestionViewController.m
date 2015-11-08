@@ -14,17 +14,19 @@
 @property (weak, nonatomic) IBOutlet UIButton *questionAudioButton;
 @property (nonatomic) BOOL questionAudioPlaying;
 
-
 @property (weak, nonatomic) IBOutlet UIButton *audioRecordingButton;
 @property (nonatomic) BOOL audioRecording;
+
+@property (strong, nonatomic)AVAudioPlayer *questionPlayer;
 @end
 
 @implementation AudioQuestionViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self pauseQuestionAudio];
     [self stopAudioRecording];
+    
+    self.questionPlayer = [[AVAudioPlayer alloc] initWithData:[self.audioQuestion audioBinary] fileTypeHint:@"mp3" error:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,24 +37,19 @@
     [self playQuestionAudio];
 }
 
-- (void)pauseQuestionAudio {
-    [self.questionAudioButton setTitle:@"Play" forState:UIControlStateNormal];
-    [self setQuestionAudioPlaying:YES];
-}
-
 - (void)playQuestionAudio {
-    [self.questionAudioButton setTitle:@"Pause" forState:UIControlStateNormal];
-    [self setQuestionAudioPlaying:NO];
+    [self.questionPlayer play];
+    self.questionAudioPlaying = YES;
 }
 
 - (void)stopAudioRecording {
     [self.audioRecordingButton setTitle:@"Record" forState:UIControlStateNormal];
-    [self setAudioRecording:NO];
+    self.audioRecording = NO;
 }
 
 - (void)recordAudioRecording {
     [self.audioRecordingButton setTitle:@"Stop" forState:UIControlStateNormal];
-    [self setAudioRecording:YES];
+    self.audioRecording = YES;
 }
 
 /*

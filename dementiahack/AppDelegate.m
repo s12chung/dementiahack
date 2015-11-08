@@ -11,6 +11,8 @@
 #import <MagicalRecord/MagicalRecord+ShorthandMethods.h>
 #import <MagicalRecord/MagicalRecordShorthandMethodAliases.h>
 
+#import "AudioQuestion.h"
+
 @interface AppDelegate ()
 
 @end
@@ -23,6 +25,13 @@
     [MagicalRecord enableShorthandMethods];
     [MagicalRecord setupAutoMigratingCoreDataStack];
     
+    [Question MR_truncateAll];
+    
+    AudioQuestion * q = [AudioQuestion MR_createEntity];
+    q.order = [NSNumber numberWithInt:1];
+    q.text = @"Something something work!";
+    q.audioBinary = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"sample" ofType:@"mp3"]];
+
     return YES;
 }
 
