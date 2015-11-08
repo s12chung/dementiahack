@@ -8,10 +8,18 @@
 
 #import "AudioQuestionViewController.h"
 #import "AudioQuestion.h"
+#import "AudioAnswer.h"
+#import <MagicalRecord/MagicalRecord.h>
 
 @interface AudioQuestionViewController ()
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveAnswerButton;
 @property (weak, nonatomic) IBOutlet UIButton *audioRecordingButton;
-@property (nonatomic) BOOL audioRecording;
+@property (weak, nonatomic) IBOutlet UIButton *recordingPlayButton;
+
+@property (nonatomic) BOOL audioRecorded;
+
+@property (strong, nonatomic) AVAudioRecorder *recorder;
+@property (strong, nonatomic) AVAudioPlayer *player;
 @end
 
 @implementation AudioQuestionViewController
@@ -21,8 +29,66 @@
 }
 
 - (void)viewDidLoad {
+    [self.recordingPlayButton setEnabled:NO];
+    [self.saveAnswerButton setEnabled:NO];
+    
+    UILongPressGestureRecognizer *gesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
+    gesture.minimumPressDuration = 0.1;
+    gesture.allowableMovement = 600;
+    [self.audioRecordingButton addGestureRecognizer:gesture];
+    
+    
+    
+    // Setup audio session
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    [session setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
+    
+    // Define the recorder setting
+    NSMutableDictionary *recordSetting = [[NSMutableDictionary alloc] init];
+    
+    [recordSetting setValue:[NSNumber numberWithInt:kAudioFormatMPEG4AAC] forKey:AVFormatIDKey];
+    [recordSetting setValue:[NSNumber numberWithFloat:44100.0] forKey:AVSampleRateKey];
+    [recordSetting setValue:[NSNumber numberWithInt: 2] forKey:AVNumberOfChannelsKey];
+    
+    // Initiate and prepare the recorder
+    NSArray *pathComponents = [NSArray arrayWithObjects:
+                               [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
+                               @"MyAudioMemo.m4a",
+                               nil];
+    self.recorder = [[AVAudioRecorder alloc] initWithURL:[NSURL fileURLWithPathComponents:pathComponents] settings:recordSetting error:nil];
+    self.recorder.delegate = self;
+    self.recorder.meteringEnabled = YES;
+    [self.recorder prepareToRecord];
+    
     [super viewDidLoad];
-    [self stopAudioRecording];
+}
+
+- (void)handleGesture:(UIGestureRecognizer *)gesture {
+    if (gesture.state == UIGestureRecognizerStateBegan)
+    {
+        AVAudioSession *session = [AVAudioSession sharedInstance];
+        [session setActive:YES error:nil];
+        [self.recorder record];
+        [self.audioRecordingButton setTitle:@"Recording" forState:UIControlStateNormal];
+    }
+    else if (gesture.state == UIGestureRecognizerStateCancelled ||
+             gesture.state == UIGestureRecognizerStateFailed ||
+             gesture.state == UIGestureRecognizerStateEnded)
+    {
+        [self.recorder stop];
+        
+        AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+        [audioSession setActive:NO error:nil];
+        
+        [self.recordingPlayButton setEnabled:YES];
+        [self.saveAnswerButton setEnabled:YES];
+        [self.audioRecordingButton setTitle:@"Hold to Record" forState:UIControlStateNormal];
+    }
+}
+- (IBAction)playRecording:(id)sender {
+    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:self.recorder.url error:nil];
+    [self.player setDelegate:self];
+    [self.player play];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,17 +96,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)stopAudioRecording {
-    [self.audioRecordingButton setTitle:@"Record" forState:UIControlStateNormal];
-    self.audioRecording = NO;
-}
-
-- (void)recordAudioRecording {
-    [self.audioRecordingButton setTitle:@"Stop" forState:UIControlStateNormal];
-    self.audioRecording = YES;
-}
-
 - (IBAction)saveAnswerButton:(id)sender {
+    AudioAnswer * answer = [AudioAnswer MR_createEntity];
+    answer.audioBinary = [NSData dataWithContentsOfURL:self.recorder.url];
+    
     [self pushNextQuestion];
 }
 

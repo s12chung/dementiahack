@@ -13,6 +13,7 @@
 
 #import "AudioQuestion.h"
 #import "DrawingQuestion.h"
+#import "Answer.h"
 
 @interface AppDelegate ()
 
@@ -27,6 +28,7 @@
     [MagicalRecord setupAutoMigratingCoreDataStack];
     
     [Question MR_truncateAll];
+    [Answer MR_truncateAll];
     
     AudioQuestion * q = [AudioQuestion MR_createEntity];
     q.order = [NSNumber numberWithInt:1];

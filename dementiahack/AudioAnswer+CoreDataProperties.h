@@ -2,7 +2,7 @@
 //  AudioAnswer+CoreDataProperties.h
 //  dementiahack
 //
-//  Created by Main on 2015-11-07.
+//  Created by Main on 2015-11-08.
 //  Copyright © 2015 Main. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AudioAnswer (CoreDataProperties)
 
+@property (nullable, nonatomic, retain) NSData *audioBinary;
 
 @end
 
