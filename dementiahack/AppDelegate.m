@@ -68,7 +68,7 @@
                },
            @{
                @"order": @6,
-               @"text": @":Good job! Last animal to name. Please speak into the phone the name of this animal."
+               @"text": @"Good job! Last animal to name. Please speak into the phone the name of this animal."
                }
            ];
     
@@ -79,6 +79,20 @@
         NSString * fileNumber = [[NSNumber numberWithInt:[question.order integerValue] + 1] stringValue];
         question.audioBinary = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:fileNumber ofType:@"mp3"]];
         question.drawingBinary = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[question.order stringValue] ofType:@"png"]];
+    }
+    
+    qs = @[
+           @{
+               @"order": @16,
+               @"text": @"The numbers are: 7, 4, 2. Please speak into the phone these numbers back to me backwards."
+               }
+           ];
+    for (NSDictionary * q in qs) {
+        AudioQuestion * question = [AudioQuestion MR_createEntity];;
+        question.order = q[@"order"];
+        question.text = q[@"text"];
+        NSString * fileNumber = [[NSNumber numberWithInt:[question.order integerValue] + 1] stringValue];
+        question.audioBinary = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:fileNumber ofType:@"mp3"]];
     }
 
     return YES;
