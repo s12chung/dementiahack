@@ -12,6 +12,7 @@
 #import <MagicalRecord/MagicalRecord.h>
 #import <AFHTTPRequestOperation.h>
 #import <AFNetworking.h>
+#import <SVProgressHUD.h>
 
 @interface DrawingQuestionViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *referenceImage;
@@ -110,14 +111,25 @@
                 NSString *value = responseObject[@"results"][0][@"score"];
                 int threashold = [@{ @2: @10, @3: @20 }[self.question.order] intValue];
                 answer.correct = [NSNumber numberWithBool:[value intValue] > threashold];
+                
+                if ([value intValue] > threashold) {
+                    [SVProgressHUD showSuccessWithStatus:@"Success"];
+                }
+                else {
+                    [SVProgressHUD showErrorWithStatus:@"Dementia?"];
+                }
             }
         }
+        else {
+            [SVProgressHUD showErrorWithStatus:@"Dementia?"];
+        }
+        
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
 
-//    [self pushNextQuestion];
+    [self pushNextQuestion];
 }
 
 

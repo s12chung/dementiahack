@@ -6,4 +6,5 @@
 target 'dementiahack' do
     pod 'AFNetworking', '~> 2.6.2'
     pod 'MagicalRecord', '~> 2.3.0'
+    pod 'SVProgressHUD'
 end

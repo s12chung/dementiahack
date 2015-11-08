@@ -45,13 +45,14 @@
 
 - (void)pushNextQuestion {
     int order = self.question.order.intValue + 1;
+    if (order == 4) order = 6;
     if (order == 7) order = 16;
+    if (order == 17) return;
     
     Question * question = [Question findFirstByAttribute:@"order" withValue: [NSNumber numberWithInt: order]];
     QuestionViewController * viewController = [self.storyboard instantiateViewControllerWithIdentifier:question.storyboardId];
     viewController.question = question;
     [self.navigationController pushViewController:viewController animated:YES];
-
 }
 /*
 #pragma mark - Navigation

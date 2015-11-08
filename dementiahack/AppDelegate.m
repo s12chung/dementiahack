@@ -59,14 +59,6 @@
     
     qs = @[
            @{
-               @"order": @4,
-               @"text": @"Please speak into the phone and say the name of the animal on the screen. Please click ready if you are ready to proceed."
-            },
-           @{
-               @"order": @5,
-               @"text": @"Good job! Please say the name of this animal and speak it into the phone."
-               },
-           @{
                @"order": @6,
                @"text": @"Good job! Last animal to name. Please speak into the phone the name of this animal."
                }

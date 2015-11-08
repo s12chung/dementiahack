@@ -11,6 +11,7 @@
 #import "AudioAnswer.h"
 #import <MagicalRecord/MagicalRecord.h>
 #import <AFHTTPRequestOperation.h>
+#import <SVProgressHUD.h>
 
 @interface AudioQuestionViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveAnswerButton;
@@ -125,10 +126,20 @@
             correct = [@"247" caseInsensitiveCompare:text] == NSOrderedSame;
         }
         answer.correct = [NSNumber numberWithBool:correct];
+        
+        if (correct) {
+            [SVProgressHUD showSuccessWithStatus:@"Success"];
+        }
+        else {
+            [SVProgressHUD showErrorWithStatus:@"Dementia?"];
+        }
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
     [operation start];
+    
+    [self pushNextQuestion];
 }
 
 /*
