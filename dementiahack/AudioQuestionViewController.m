@@ -40,6 +40,10 @@
     self.audioRecording = YES;
 }
 
+- (IBAction)saveAnswerButton:(id)sender {
+    [self pushNextQuestion];
+}
+
 /*
 #pragma mark - Navigation
 

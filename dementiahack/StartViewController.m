@@ -33,8 +33,9 @@
     navigationController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self presentViewController:navigationController animated:YES completion:nil];
     
-    AudioQuestionViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AudioQuestion"];
-    viewController.question = [AudioQuestion findFirstByAttribute:@"order" withValue: [NSNumber numberWithInt:1]];
+    Question * question = [Question findFirstByAttribute:@"order" withValue: [NSNumber numberWithInt:1]];
+    QuestionViewController * viewController = [self.storyboard instantiateViewControllerWithIdentifier:question.storyboardId];
+    viewController.question = question;
     [navigationController pushViewController:viewController animated:YES];
 }
 

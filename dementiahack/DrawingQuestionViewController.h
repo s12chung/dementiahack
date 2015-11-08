@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QuestionViewController.h"
 
-@interface DrawingQuestionViewController : UIViewController
-
+@interface DrawingQuestionViewController : QuestionViewController
 @end

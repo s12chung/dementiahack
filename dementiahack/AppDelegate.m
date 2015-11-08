@@ -12,6 +12,7 @@
 #import <MagicalRecord/MagicalRecordShorthandMethodAliases.h>
 
 #import "AudioQuestion.h"
+#import "DrawingQuestion.h"
 
 @interface AppDelegate ()
 
@@ -31,6 +32,12 @@
     q.order = [NSNumber numberWithInt:1];
     q.text = @"Something something work!";
     q.audioBinary = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"sample" ofType:@"mp3"]];
+    
+    DrawingQuestion * q2 = [DrawingQuestion MR_createEntity];
+    q2.order = [NSNumber numberWithInt:2];
+    q2.text = @"Something something work!";
+    q2.audioBinary = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"sample" ofType:@"mp3"]];
+    q2.drawingBinary = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"cube" ofType:@"png"]];
 
     return YES;
 }

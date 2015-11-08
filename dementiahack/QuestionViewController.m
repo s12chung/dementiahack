@@ -7,6 +7,7 @@
 //
 
 #import "QuestionViewController.h"
+#import <MagicalRecord/MagicalRecordShorthandMethodAliases.h>
 
 @interface QuestionViewController ()
 
@@ -18,8 +19,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = [NSString stringWithFormat:@"Question %@", self.question.order];
+    if (self.question.order) self.title = [NSString stringWithFormat:@"Question %@", self.question.order];
     [self.questionTextLabel setText:self.question.text];
+    [self.navigationItem setHidesBackButton:YES];
     self.questionPlayer = [[AVAudioPlayer alloc] initWithData:[self.question audioBinary] fileTypeHint:@"mp3" error:nil];
 }
 
@@ -37,7 +39,13 @@
     self.questionAudioPlaying = YES;
 }
 
+- (void)pushNextQuestion {
+    Question * question = [Question findFirstByAttribute:@"order" withValue: [NSNumber numberWithInt:self.question.order.intValue + 1]];
+    QuestionViewController * viewController = [self.storyboard instantiateViewControllerWithIdentifier:question.storyboardId];
+    viewController.question = question;
+    [self.navigationController pushViewController:viewController animated:YES];
 
+}
 /*
 #pragma mark - Navigation
 

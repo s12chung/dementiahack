@@ -26,6 +26,7 @@
 		AA2CD23F1BEEF43D00942C4B /* DrawingAnswer+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2CD23A1BEEF43D00942C4B /* DrawingAnswer+CoreDataProperties.m */; };
 		AA2CD2401BEEF43D00942C4B /* DrawingAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2CD23C1BEEF43D00942C4B /* DrawingAnswer.m */; };
 		AA2CD2431BEEF46700942C4B /* DrawingQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2CD2421BEEF46700942C4B /* DrawingQuestionViewController.m */; };
+		AA2CD2481BEF071D00942C4B /* cube.png in Resources */ = {isa = PBXBuildFile; fileRef = AA2CD2471BEF071D00942C4B /* cube.png */; };
 		AABBD95B1BEE86EB00B6A183 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AABBD95A1BEE86EB00B6A183 /* main.m */; };
 		AABBD95E1BEE86EB00B6A183 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AABBD95D1BEE86EB00B6A183 /* AppDelegate.m */; };
 		AABBD9641BEE86EB00B6A183 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AABBD9631BEE86EB00B6A183 /* SecondViewController.m */; };
@@ -70,6 +71,7 @@
 		AA2CD23C1BEEF43D00942C4B /* DrawingAnswer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingAnswer.m; sourceTree = "<group>"; };
 		AA2CD2411BEEF46700942C4B /* DrawingQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingQuestionViewController.h; sourceTree = "<group>"; };
 		AA2CD2421BEEF46700942C4B /* DrawingQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingQuestionViewController.m; sourceTree = "<group>"; };
+		AA2CD2471BEF071D00942C4B /* cube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cube.png; path = ../../../Downloads/cube.png; sourceTree = "<group>"; };
 		AABBD9561BEE86EB00B6A183 /* dementiahack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dementiahack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AABBD95A1BEE86EB00B6A183 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AABBD95C1BEE86EB00B6A183 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -142,6 +144,14 @@
 			name = Audio;
 			sourceTree = "<group>";
 		};
+		AA2CD2491BEF074E00942C4B /* Drawing */ = {
+			isa = PBXGroup;
+			children = (
+				AA2CD2471BEF071D00942C4B /* cube.png */,
+			);
+			name = Drawing;
+			sourceTree = "<group>";
+		};
 		AABBD94D1BEE86EB00B6A183 = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +173,7 @@
 		AABBD9581BEE86EB00B6A183 /* dementiahack */ = {
 			isa = PBXGroup;
 			children = (
+				AA2CD2491BEF074E00942C4B /* Drawing */,
 				AA2CD2201BEED67100942C4B /* Audio */,
 				AA2CD1F81BEEAEEB00942C4B /* Models */,
 				AABBD95C1BEE86EB00B6A183 /* AppDelegate.h */,
@@ -262,6 +273,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA2CD2481BEF071D00942C4B /* cube.png in Resources */,
 				AABBD9691BEE86EB00B6A183 /* Assets.xcassets in Resources */,
 				AA2CD2241BEEDE7400942C4B /* sample.mp3 in Resources */,
 				AABBD9671BEE86EB00B6A183 /* Main.storyboard in Resources */,

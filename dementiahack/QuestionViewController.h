@@ -18,5 +18,5 @@
 @property (nonatomic) BOOL questionAudioPlaying;
 @property (strong, nonatomic)AVAudioPlayer *questionPlayer;
 
-
+- (void)pushNextQuestion;
 @end
