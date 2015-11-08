@@ -39,6 +39,18 @@
     [navigationController pushViewController:viewController animated:YES];
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 3;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    cell.textLabel.text = [NSString stringWithFormat:[@[@"MOCA", @"GPCOG", @"MMSE"] objectAtIndex:indexPath.row]];
+    return cell;
+}
+
 /*
 #pragma mark - Navigation
 
