@@ -28,9 +28,11 @@
     [super viewDidLoad];
     
     [self.navigationItem setHidesBackButton:NO];
-    self.referenceImage.contentMode = UIViewContentModeScaleAspectFit;
-    [self.referenceImage setImage:[UIImage imageWithData:self.drawingQuestion.drawingBinary]];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    if (self.drawingQuestion.drawingBinary) {
+        self.referenceImage.contentMode = UIViewContentModeScaleAspectFit;
+        [self.referenceImage setImage:[UIImage imageWithData:self.drawingQuestion.drawingBinary]];
+    }
 }
 //DRAW IMAGE SECTION///
 - (void) touchesBegan:(NSSet *)touches withEvent: (UIEvent *)event{
@@ -73,6 +75,9 @@
     UIGraphicsEndImageContext();
     self.lastPoint = self.currentPoint;
     [self.view addSubview: self.drawImage];
+}
+- (IBAction)saveAnswer:(id)sender {
+    [self pushNextQuestion];
 }
 
 

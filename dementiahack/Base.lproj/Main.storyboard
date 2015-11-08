@@ -89,7 +89,9 @@
                         <constraints>
                             <constraint firstItem="8sO-Mm-1ta" firstAttribute="top" secondItem="87J-pT-jzN" secondAttribute="bottom" constant="100" id="1SS-cG-oTn"/>
                             <constraint firstItem="oqU-pA-TeT" firstAttribute="top" secondItem="8sO-Mm-1ta" secondAttribute="bottom" constant="60" id="BT6-yM-phe"/>
+                            <constraint firstItem="8sO-Mm-1ta" firstAttribute="trailing" secondItem="Pcu-XU-JgU" secondAttribute="trailingMargin" id="HNN-fU-lAo"/>
                             <constraint firstItem="oqU-pA-TeT" firstAttribute="centerX" secondItem="Pcu-XU-JgU" secondAttribute="centerX" id="VlH-Dh-aE8"/>
+                            <constraint firstItem="8sO-Mm-1ta" firstAttribute="leading" secondItem="Pcu-XU-JgU" secondAttribute="leadingMargin" id="f9P-Ry-tjP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fHM-JW-1c6" secondAttribute="trailing" constant="22" id="hb4-0w-TKS"/>
                             <constraint firstItem="oqU-pA-TeT" firstAttribute="centerX" secondItem="Pcu-XU-JgU" secondAttribute="centerX" id="pTw-dc-4E5"/>
                             <constraint firstItem="fHM-JW-1c6" firstAttribute="top" secondItem="oqU-pA-TeT" secondAttribute="bottom" constant="17" id="peZ-x3-Qud"/>
@@ -218,7 +220,9 @@
                             <constraint firstItem="AjI-S5-hhw" firstAttribute="centerX" secondItem="Ydz-zK-4xD" secondAttribute="centerX" id="0mI-0a-TOG"/>
                             <constraint firstItem="Q1o-sy-rsD" firstAttribute="top" secondItem="AjI-S5-hhw" secondAttribute="bottom" constant="60" id="A7K-lR-XFn"/>
                             <constraint firstItem="Q1o-sy-rsD" firstAttribute="centerX" secondItem="Ydz-zK-4xD" secondAttribute="centerX" id="BpE-zj-C6K"/>
+                            <constraint firstItem="AjI-S5-hhw" firstAttribute="leading" secondItem="Ydz-zK-4xD" secondAttribute="leadingMargin" id="IJo-F2-TrO"/>
                             <constraint firstItem="Q1o-sy-rsD" firstAttribute="centerX" secondItem="Ydz-zK-4xD" secondAttribute="centerX" id="TMG-Y0-qyt"/>
+                            <constraint firstItem="AjI-S5-hhw" firstAttribute="trailing" secondItem="Ydz-zK-4xD" secondAttribute="trailingMargin" id="YJl-Yi-6ZY"/>
                             <constraint firstItem="AjI-S5-hhw" firstAttribute="top" secondItem="fIT-1h-MgN" secondAttribute="bottom" constant="100" id="imF-qe-O9L"/>
                         </constraints>
                     </view>
@@ -298,6 +302,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <animations/>
                                 <state key="normal" title="Save Answer"/>
+                                <connections>
+                                    <action selector="saveAnswer:" destination="ikV-Ie-5Jn" eventType="touchUpInside" id="uu7-ha-Hzg"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>

@@ -8,6 +8,7 @@
 
 #import "QuestionViewController.h"
 #import <MagicalRecord/MagicalRecordShorthandMethodAliases.h>
+#import "UILabel+dynamicSizeMe.h"
 
 @interface QuestionViewController ()
 
@@ -20,7 +21,10 @@
     // Do any additional setup after loading the view.
     
     if (self.question.order) self.title = [NSString stringWithFormat:@"Question %@", self.question.order];
+    
     [self.questionTextLabel setText:self.question.text];
+    [self.questionTextLabel resizeToFit];
+    
     [self.navigationItem setHidesBackButton:YES];
     self.questionPlayer = [[AVAudioPlayer alloc] initWithData:[self.question audioBinary] fileTypeHint:@"mp3" error:nil];
 }

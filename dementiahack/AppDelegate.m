@@ -23,23 +23,55 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
     [MagicalRecord enableShorthandMethods];
     [MagicalRecord setupAutoMigratingCoreDataStack];
     
     [Question MR_truncateAll];
     [Answer MR_truncateAll];
     
+    NSArray * qs = @[
+//                          @{
+//                              @"order": @1,
+//                              @"text": @"I want you to draw a line from the number to the letter in an ascending order. For example, 1 to A is drawn here, now draw A to 2, and 2 to B, and continue this pattern."
+//                            },
+                          @{
+                              @"order": @2,
+                              @"text": @"I want you to now draw and copy this cube. Please copy the cube you see in this picture. Draw it on the next screen. Thank you."
+                              }
+                         ,
+                          @{
+                              @"order": @3,
+                              @"text": @"Please draw a clock with your finger. Make a big circle and put all the numbers of a clock where they are supposed to be. Please set the time for the clock for 10 past 11."
+                              }
+                          ];
+    for (NSDictionary * q in qs) {
+        DrawingQuestion * question = [DrawingQuestion MR_createEntity];;
+        question.order = q[@"order"];
+        question.text = q[@"text"];
+        NSString * fileNumber = [[NSNumber numberWithInt:[question.order integerValue] + 1] stringValue];
+        question.audioBinary = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:fileNumber ofType:@"mp3"]];
+        if ([question.order intValue] == 2) {
+                 question.drawingBinary = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"cube" ofType:@"png"]];
+        }
+    }
+    qs = @[
+           @{
+               @"order": @4,
+               @"text": @"Please speak into the phone and say the name of the animal on the screen. Please click ready if you are ready to proceed."
+            },
+           @{
+               @"order": @5,
+               @"text": @"Good job! Please say the name of this animal and speak it into the phone."
+               },
+           @{
+               @"order": @6,
+               @"text": @":Good job! Last animal to name. Please speak into the phone the name of this animal."
+               }
+           ];
     AudioQuestion * q = [AudioQuestion MR_createEntity];
     q.order = [NSNumber numberWithInt:1];
     q.text = @"Something something work!";
     q.audioBinary = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"sample" ofType:@"mp3"]];
-    
-    DrawingQuestion * q2 = [DrawingQuestion MR_createEntity];
-    q2.order = [NSNumber numberWithInt:2];
-    q2.text = @"Something something work!";
-    q2.audioBinary = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"sample" ofType:@"mp3"]];
-    q2.drawingBinary = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"cube" ofType:@"png"]];
 
     return YES;
 }
