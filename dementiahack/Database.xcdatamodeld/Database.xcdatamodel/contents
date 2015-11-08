@@ -7,7 +7,7 @@
         <attribute name="audioBinary" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
     </entity>
     <entity name="AudioQuestion" representedClassName="AudioQuestion" parentEntity="Question" syncable="YES"/>
-    <entity name="DrawingAnswer" representedClassName="DrawingAnswer" syncable="YES">
+    <entity name="DrawingAnswer" representedClassName="DrawingAnswer" parentEntity="Answer" syncable="YES">
         <attribute name="drawingBinary" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
     </entity>
     <entity name="DrawingAudioQuestion" representedClassName="DrawingAudioQuestion" parentEntity="Question" syncable="YES">

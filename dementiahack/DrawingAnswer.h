@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "Answer.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DrawingAnswer : NSManagedObject
+@interface DrawingAnswer : Answer
 
 // Insert code here to declare functionality of your managed object subclass
 

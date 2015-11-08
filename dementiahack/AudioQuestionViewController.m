@@ -10,6 +10,7 @@
 #import "AudioQuestion.h"
 #import "AudioAnswer.h"
 #import <MagicalRecord/MagicalRecord.h>
+#import <AFHTTPRequestOperation.h>
 
 @interface AudioQuestionViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveAnswerButton;
@@ -46,14 +47,14 @@
     // Define the recorder setting
     NSMutableDictionary *recordSetting = [[NSMutableDictionary alloc] init];
     
-    [recordSetting setValue:[NSNumber numberWithInt:kAudioFormatMPEG4AAC] forKey:AVFormatIDKey];
+    [recordSetting setValue:[NSNumber numberWithInt:kAudioFormatLinearPCM] forKey:AVFormatIDKey];
     [recordSetting setValue:[NSNumber numberWithFloat:44100.0] forKey:AVSampleRateKey];
     [recordSetting setValue:[NSNumber numberWithInt: 2] forKey:AVNumberOfChannelsKey];
     
     // Initiate and prepare the recorder
     NSArray *pathComponents = [NSArray arrayWithObjects:
                                [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
-                               @"MyAudioMemo.m4a",
+                               @"MyAudioMemo.wav",
                                nil];
     self.recorder = [[AVAudioRecorder alloc] initWithURL:[NSURL fileURLWithPathComponents:pathComponents] settings:recordSetting error:nil];
     self.recorder.delegate = self;
@@ -100,7 +101,27 @@
     AudioAnswer * answer = [AudioAnswer MR_createEntity];
     answer.audioBinary = [NSData dataWithContentsOfURL:self.recorder.url];
     
-    [self pushNextQuestion];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:@"https://api.wit.ai/speech?v=20141022"]];
+    [request setHTTPMethod:@"POST"];
+    
+    //set headers
+    [request addValue:@"audio/wav" forHTTPHeaderField: @"Content-Type"];
+    [request addValue:@"Bearer DBAVAREA426NVTIDZBY47X2SJJK7QIO2" forHTTPHeaderField: @"Authorization"];
+    
+    //body - just file
+    [request setHTTPBody:[NSData dataWithContentsOfURL:self.recorder.url]];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        BOOL correct = [@"247" caseInsensitiveCompare:responseObject[@"_text"]] == NSOrderedSame;
+        answer.correct = [NSNumber numberWithBool:correct];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+    [operation start];
 }
 
 /*
