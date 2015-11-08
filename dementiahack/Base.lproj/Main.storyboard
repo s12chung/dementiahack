@@ -317,6 +317,99 @@
             </objects>
             <point key="canvasLocation" x="1779" y="409"/>
         </scene>
+        <!--Drawing Audio View Controller-->
+        <scene sceneID="86d-Au-87W">
+            <objects>
+                <viewController storyboardIdentifier="DrawingAudioQuestion" id="Hqp-ap-Zgh" customClass="DrawingAudioViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="O2r-e9-vKq"/>
+                        <viewControllerLayoutGuide type="bottom" id="EAo-pt-TAV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cck-wH-RRU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xDh-xg-uup">
+                                <rect key="frame" x="35" y="530" width="106" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Hold To Record"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxl-He-tvY">
+                                <rect key="frame" x="145" y="95" width="30" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="questionAudioButtonTouchUp:" destination="Hqp-ap-Zgh" eventType="touchUpInside" id="eRB-zP-9E1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xpp-cr-BBd">
+                                <rect key="frame" x="187" y="530" width="103" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Play Recording"/>
+                                <connections>
+                                    <action selector="playRecording:" destination="Hqp-ap-Zgh" eventType="touchUpInside" id="Ou6-bT-lxH"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6uB-9p-XDP">
+                                <rect key="frame" x="0.0" y="140" width="320" height="369"/>
+                                <animations/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Some question to talk about hahaha." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X7n-rK-nvQ">
+                                <rect key="frame" x="20" y="53" width="280" height="28"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="X7n-rK-nvQ" firstAttribute="leading" secondItem="cck-wH-RRU" secondAttribute="leadingMargin" id="3k3-Bd-pca"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6uB-9p-XDP" secondAttribute="trailing" constant="-20" id="6sJ-A4-AOw"/>
+                            <constraint firstItem="X7n-rK-nvQ" firstAttribute="centerX" secondItem="cck-wH-RRU" secondAttribute="centerX" id="9X7-kU-bxh"/>
+                            <constraint firstItem="EAo-pt-TAV" firstAttribute="top" secondItem="xDh-xg-uup" secondAttribute="bottom" constant="10" id="B53-eh-xc5"/>
+                            <constraint firstItem="X7n-rK-nvQ" firstAttribute="top" secondItem="O2r-e9-vKq" secondAttribute="bottom" constant="10" id="HYW-Zt-tbz"/>
+                            <constraint firstItem="X7n-rK-nvQ" firstAttribute="trailing" secondItem="cck-wH-RRU" secondAttribute="trailingMargin" id="UYi-94-rRl"/>
+                            <constraint firstItem="6uB-9p-XDP" firstAttribute="leading" secondItem="cck-wH-RRU" secondAttribute="leadingMargin" constant="-20" id="Vcf-47-TiL"/>
+                            <constraint firstItem="rxl-He-tvY" firstAttribute="top" secondItem="X7n-rK-nvQ" secondAttribute="bottom" constant="10" id="bDg-Vy-51E"/>
+                            <constraint firstItem="xDh-xg-uup" firstAttribute="leading" secondItem="cck-wH-RRU" secondAttribute="leadingMargin" constant="23" id="bLV-Bc-r2i"/>
+                            <constraint firstItem="rxl-He-tvY" firstAttribute="centerX" secondItem="cck-wH-RRU" secondAttribute="centerX" id="bRo-4L-LIF"/>
+                            <constraint firstItem="EAo-pt-TAV" firstAttribute="top" secondItem="xpp-cr-BBd" secondAttribute="bottom" constant="8" id="dHQ-um-CWs"/>
+                            <constraint firstItem="6uB-9p-XDP" firstAttribute="top" secondItem="rxl-He-tvY" secondAttribute="bottom" constant="24" id="eS0-UZ-jXc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xpp-cr-BBd" secondAttribute="trailing" constant="22" id="iF4-Kg-b69"/>
+                            <constraint firstItem="rxl-He-tvY" firstAttribute="centerX" secondItem="cck-wH-RRU" secondAttribute="centerX" id="xuo-wI-QwT"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="tzh-5F-wVL">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="SbQ-1d-vkm">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3mL-2h-Kiy">
+                                <rect key="frame" x="216" y="7" width="88" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <state key="normal" title="Save Answer"/>
+                                <connections>
+                                    <action selector="saveAnswerButton:" destination="Hqp-ap-Zgh" eventType="touchUpInside" id="SR4-hi-ycp"/>
+                                </connections>
+                            </button>
+                            <connections>
+                                <action selector="pushNextQuestion:" destination="Hqp-ap-Zgh" id="Pel-Vz-hCD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="audioRecordingButton" destination="xDh-xg-uup" id="I7t-qB-aZ8"/>
+                        <outlet property="questionAudioButton" destination="rxl-He-tvY" id="K9y-xr-atM"/>
+                        <outlet property="questionTextLabel" destination="X7n-rK-nvQ" id="xmH-Ao-GhE"/>
+                        <outlet property="recordingPlayButton" destination="xpp-cr-BBd" id="SMI-wX-NB2"/>
+                        <outlet property="referenceImage" destination="6uB-9p-XDP" id="V0d-VI-zN0"/>
+                        <outlet property="saveAnswerButton" destination="SbQ-1d-vkm" id="PQc-bv-crc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wog-pI-XF4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="936" y="409"/>
+        </scene>
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>

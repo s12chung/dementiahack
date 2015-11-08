@@ -1,25 +1,23 @@
 //
-//  Question.h
+//  DrawingAudioQuestion.h
 //  dementiahack
 //
-//  Created by Main on 2015-11-07.
+//  Created by Main on 2015-11-08.
 //  Copyright © 2015 Main. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-
-#define FIRST_QUESTION_ORDER @4
+#import "Question.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Question : NSManagedObject
+@interface DrawingAudioQuestion : Question
 
 // Insert code here to declare functionality of your managed object subclass
-- (NSString *)storyboardId;
 
 @end
 
 NS_ASSUME_NONNULL_END
 
-#import "Question+CoreDataProperties.h"
+#import "DrawingAudioQuestion+CoreDataProperties.h"

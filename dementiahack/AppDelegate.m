@@ -13,6 +13,7 @@
 
 #import "AudioQuestion.h"
 #import "DrawingQuestion.h"
+#import "DrawingAudioQuestion.h"
 #import "Answer.h"
 
 @interface AppDelegate ()
@@ -50,10 +51,12 @@
         question.text = q[@"text"];
         NSString * fileNumber = [[NSNumber numberWithInt:[question.order integerValue] + 1] stringValue];
         question.audioBinary = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:fileNumber ofType:@"mp3"]];
+        
         if ([question.order intValue] == 2) {
-                 question.drawingBinary = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"cube" ofType:@"png"]];
+            question.drawingBinary = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[question.order stringValue] ofType:@"png"]];
         }
     }
+    
     qs = @[
            @{
                @"order": @4,
@@ -68,10 +71,15 @@
                @"text": @":Good job! Last animal to name. Please speak into the phone the name of this animal."
                }
            ];
-    AudioQuestion * q = [AudioQuestion MR_createEntity];
-    q.order = [NSNumber numberWithInt:1];
-    q.text = @"Something something work!";
-    q.audioBinary = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"sample" ofType:@"mp3"]];
+    
+    for (NSDictionary * q in qs) {
+        DrawingAudioQuestion * question = [DrawingAudioQuestion MR_createEntity];;
+        question.order = q[@"order"];
+        question.text = q[@"text"];
+        NSString * fileNumber = [[NSNumber numberWithInt:[question.order integerValue] + 1] stringValue];
+        question.audioBinary = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:fileNumber ofType:@"mp3"]];
+        question.drawingBinary = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[question.order stringValue] ofType:@"png"]];
+    }
 
     return YES;
 }
