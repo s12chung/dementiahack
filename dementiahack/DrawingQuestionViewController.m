@@ -55,12 +55,12 @@
 }
 
 - (NSData *)imageData {
-    return UIImagePNGRepresentation(self.drawImage.image);
+    return UIImageJPEGRepresentation(self.drawImage.image, 1);
 }
 -(NSURL *)saveImage {
     NSArray *pathComponents = [NSArray arrayWithObjects:
                                [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
-                               @"drawImage.png",
+                               @"drawImage.jpg",
                                nil];
     NSURL * url = [NSURL fileURLWithPathComponents:pathComponents];
     [self.imageData writeToURL:url atomically:NO];
@@ -102,26 +102,31 @@
 //        NSURL *filePath = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"2" ofType:@"png"]];
 //        [formData appendPartWithFileURL:filePath name:@"image" error:nil];
         
-        [formData appendPartWithFileData:answer.drawingBinary name:@"image" fileName:@"image.png" mimeType:@"image/png"];
+        [formData appendPartWithFileData:answer.drawingBinary name:@"image" fileName:@"image.jpg" mimeType:@"image/jpg"];
         
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject isKindOfClass:[NSDictionary class]]) {
             NSLog(@"Success: %@", responseObject);
             if ([responseObject isKindOfClass:[NSDictionary class]]) {
-                NSString *value = responseObject[@"results"][0][@"score"];
-                int threashold = [@{ @2: @10, @3: @20 }[self.question.order] intValue];
-                answer.correct = [NSNumber numberWithBool:[value intValue] > threashold];
-                
-                if ([value intValue] > threashold) {
-                    [SVProgressHUD showSuccessWithStatus:@"Success"];
+                if ([responseObject[@"results"] count] == 0) {
+                    [SVProgressHUD showErrorWithStatus:@"Incorrect"];
                 }
                 else {
-                    [SVProgressHUD showErrorWithStatus:@"Dementia?"];
+                    NSString *value = responseObject[@"results"][0][@"score"];
+                    int threashold = [@{ @2: @10, @3: @20 }[self.question.order] intValue];
+                    answer.correct = [NSNumber numberWithBool:[value intValue] > threashold];
+                    
+                    if ([value intValue] > threashold) {
+                        [SVProgressHUD showSuccessWithStatus:@"Success"];
+                    }
+                    else {
+                        [SVProgressHUD showErrorWithStatus:@"Incorrect"];
+                    }
                 }
             }
         }
         else {
-            [SVProgressHUD showErrorWithStatus:@"Dementia?"];
+            [SVProgressHUD showErrorWithStatus:@"Incorrect"];
         }
         
         

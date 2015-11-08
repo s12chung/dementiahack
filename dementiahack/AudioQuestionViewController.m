@@ -131,7 +131,7 @@
             [SVProgressHUD showSuccessWithStatus:@"Success"];
         }
         else {
-            [SVProgressHUD showErrorWithStatus:@"Dementia?"];
+            [SVProgressHUD showErrorWithStatus:@"Incorrect"];
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
