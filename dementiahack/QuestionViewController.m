@@ -18,6 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.title = [NSString stringWithFormat:@"Question %@", self.question.order];
     [self.questionTextLabel setText:self.question.text];
     self.questionPlayer = [[AVAudioPlayer alloc] initWithData:[self.question audioBinary] fileTypeHint:@"mp3" error:nil];
 }
