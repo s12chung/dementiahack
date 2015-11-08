@@ -13,7 +13,8 @@
 
 @implementation Question (CoreDataProperties)
 
-@dynamic text;
 @dynamic order;
+@dynamic text;
+@dynamic audioBinary;
 
 @end

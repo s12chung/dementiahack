@@ -10,10 +10,6 @@
 #import "AudioQuestion.h"
 
 @interface AudioQuestionViewController ()
-@property (weak, nonatomic) IBOutlet UIButton *questionAudioButton;
-@property (nonatomic) BOOL questionAudioPlaying;
-@property (strong, nonatomic)AVAudioPlayer *questionPlayer;
-
 @property (weak, nonatomic) IBOutlet UIButton *audioRecordingButton;
 @property (nonatomic) BOOL audioRecording;
 @end
@@ -27,21 +23,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self stopAudioRecording];
-    
-    self.questionPlayer = [[AVAudioPlayer alloc] initWithData:[self.audioQuestion audioBinary] fileTypeHint:@"mp3" error:nil];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-- (IBAction)questionAudioButtonTouchUp:(id)sender {
-    [self playQuestionAudio];
-}
-
-- (void)playQuestionAudio {
-    [self.questionPlayer play];
-    self.questionAudioPlaying = YES;
 }
 
 - (void)stopAudioRecording {

@@ -1,5 +1,5 @@
 //
-//  AudioQuestion+CoreDataProperties.m
+//  DrawingAnswer+CoreDataProperties.m
 //  dementiahack
 //
 //  Created by Main on 2015-11-07.
@@ -9,9 +9,10 @@
 //  to delete and recreate this implementation file for your updated model.
 //
 
-#import "AudioQuestion+CoreDataProperties.h"
+#import "DrawingAnswer+CoreDataProperties.h"
 
-@implementation AudioQuestion (CoreDataProperties)
+@implementation DrawingAnswer (CoreDataProperties)
 
+@dynamic drawingBinary;
 
 @end

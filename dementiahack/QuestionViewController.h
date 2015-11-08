@@ -7,9 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 #import "Question.h"
 
 @interface QuestionViewController : UIViewController
     @property (strong, nonatomic) Question * question;
     @property (weak, nonatomic) IBOutlet UILabel *questionTextLabel;
+
+@property (weak, nonatomic) IBOutlet UIButton *questionAudioButton;
+@property (nonatomic) BOOL questionAudioPlaying;
+@property (strong, nonatomic)AVAudioPlayer *questionPlayer;
+
+
 @end

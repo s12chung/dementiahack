@@ -1,41 +1,28 @@
 //
-//  QuestionViewController.m
+//  DrawingQuestionViewController.m
 //  dementiahack
 //
 //  Created by Main on 2015-11-07.
 //  Copyright © 2015 Main. All rights reserved.
 //
 
-#import "QuestionViewController.h"
+#import "DrawingQuestionViewController.h"
 
-@interface QuestionViewController ()
+@interface DrawingQuestionViewController ()
 
 @end
 
-@implementation QuestionViewController
+@implementation DrawingQuestionViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    [self.questionTextLabel setText:self.question.text];
-    self.questionPlayer = [[AVAudioPlayer alloc] initWithData:[self.question audioBinary] fileTypeHint:@"mp3" error:nil];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-- (IBAction)questionAudioButtonTouchUp:(id)sender {
-    [self playQuestionAudio];
-}
-
-- (void)playQuestionAudio {
-    [self.questionPlayer play];
-    self.questionAudioPlaying = YES;
-}
-
 
 /*
 #pragma mark - Navigation

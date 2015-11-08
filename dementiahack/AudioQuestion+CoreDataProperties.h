@@ -15,7 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AudioQuestion (CoreDataProperties)
 
-@property (nullable, nonatomic, retain) NSData *audioBinary;
 
 @end
 

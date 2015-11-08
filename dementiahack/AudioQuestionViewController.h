@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "QuestionViewController.h"
-#import <AVFoundation/AVFoundation.h>
 
 
 @interface AudioQuestionViewController : QuestionViewController <AVAudioRecorderDelegate, AVAudioPlayerDelegate>

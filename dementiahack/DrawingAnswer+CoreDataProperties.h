@@ -1,5 +1,5 @@
 //
-//  Question+CoreDataProperties.h
+//  DrawingAnswer+CoreDataProperties.h
 //  dementiahack
 //
 //  Created by Main on 2015-11-07.
@@ -9,15 +9,13 @@
 //  to delete and recreate this implementation file for your updated model.
 //
 
-#import "Question.h"
+#import "DrawingAnswer.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Question (CoreDataProperties)
+@interface DrawingAnswer (CoreDataProperties)
 
-@property (nullable, nonatomic, retain) NSNumber *order;
-@property (nullable, nonatomic, retain) NSString *text;
-@property (nullable, nonatomic, retain) NSData *audioBinary;
+@property (nullable, nonatomic, retain) NSData *drawingBinary;
 
 @end
 

@@ -55,12 +55,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cT2-o2-rbv">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cT2-o2-rbv">
                                 <rect key="frame" x="136" y="251" width="49" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Record"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oqU-pA-TeT">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oqU-pA-TeT">
                                 <rect key="frame" x="145" y="201" width="30" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Play"/>
@@ -68,7 +68,7 @@
                                     <action selector="questionAudioButtonTouchUp:" destination="XJA-p4-efS" eventType="touchUpInside" id="uzO-BR-fGm"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some question to talk about hahaha." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sO-Mm-1ta">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Some question to talk about hahaha." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sO-Mm-1ta">
                                 <rect key="frame" x="20" y="120" width="280" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -88,6 +88,7 @@
                             <constraint firstItem="cT2-o2-rbv" firstAttribute="top" secondItem="oqU-pA-TeT" secondAttribute="bottom" constant="20" id="wgb-tg-cNF"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="PQO-yn-9pZ"/>
                     <connections>
                         <outlet property="audioRecordingButton" destination="cT2-o2-rbv" id="aO1-57-gSl"/>
                         <outlet property="questionAudioButton" destination="oqU-pA-TeT" id="eQS-It-BAs"/>
@@ -96,7 +97,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AR1-hF-k7M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="915" y="-282"/>
+            <point key="canvasLocation" x="1341" y="-318"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="JFv-aF-hpT">
+            <objects>
+                <navigationController storyboardIdentifier="NavigationView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Irb-vj-Vto" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="99U-NN-b3I">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="XJA-p4-efS" kind="push" id="0vu-D0-YFp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="epv-V4-Lz0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="923" y="-318"/>
         </scene>
         <!--History-->
         <scene sceneID="wg7-f3-ORb">

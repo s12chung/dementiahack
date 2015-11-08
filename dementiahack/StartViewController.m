@@ -29,10 +29,13 @@
 }
 
 - (IBAction)startNewInterviewButtonTouched:(id)sender {
+    UINavigationController * navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"NavigationView"];
+    navigationController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController:navigationController animated:YES completion:nil];
+    
     AudioQuestionViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AudioQuestion"];
-    viewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     viewController.question = [AudioQuestion findFirstByAttribute:@"order" withValue: [NSNumber numberWithInt:1]];
-    [self presentViewController:viewController animated:YES completion:nil];
+    [navigationController pushViewController:viewController animated:YES];
 }
 
 /*
