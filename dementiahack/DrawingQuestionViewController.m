@@ -42,13 +42,6 @@
 //DRAW IMAGE SECTION///
 - (void) touchesBegan:(NSSet *)touches withEvent: (UIEvent *)event{
     UITouch *touch = [[event allTouches] anyObject];
-    
-    //Double Tap to Clear Screen
-    if([touch tapCount]==2) {
-        [self saveImage];
-        self.drawImage.image=nil;
-    }
-    
     self.lastPoint = [touch locationInView:self.drawImage];
     [super touchesBegan: touches withEvent: event];
     
