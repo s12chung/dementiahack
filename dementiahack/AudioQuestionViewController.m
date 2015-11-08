@@ -116,7 +116,14 @@
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        BOOL correct = [@"247" caseInsensitiveCompare:responseObject[@"_text"]] == NSOrderedSame;
+        BOOL correct;
+        NSString * text = responseObject[@"_text"];
+        if ([self.question.order intValue] == 6) {
+            correct = [text containsString:@"rhino"];
+        }
+        else {
+            correct = [@"247" caseInsensitiveCompare:text] == NSOrderedSame;
+        }
         answer.correct = [NSNumber numberWithBool:correct];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
